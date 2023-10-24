@@ -1,0 +1,36 @@
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
+db = SQLAlchemy()
+
+class User(db.Model):
+    __tablename__ = 'user'  # Update with your table name
+    sno = db.Column(db.Integer, primary_key=True)
+    patientid = db.Column(db.String(100), unique=True, nullable=False)
+    firstname = db.Column(db.String(255), nullable=False)
+    lastname = db.Column(db.String(255), nullable=False)
+    sex = db.Column(db.String(10))
+    marital = db.Column(db.String(20))
+    dob = db.Column(db.Date)
+    organ = db.Column(db.String(20))
+    weight = db.Column(db.Float)
+    lungoptions = db.Column(db.String(250)) 
+    chiefcomplaints = db.Column(db.String(250)) 
+    pastmedicalhistory= db.Column(db.String(250))
+    substanceabuse =  db.Column(db.String(250))
+    breathsound = db.Column(db.String(250))
+    laterality = db.Column(db.String(250))
+    lateralityopt = db.Column(db.String(250))
+    chestimaging = db.Column(db.String(250))
+    diagnosis = db.Column(db.String(250))
+    cnfdiagnosis = db.Column(db.String(250))
+    relapse = db.Column(db.String(250))
+    pastsurgicalhistoryoption  = db.Column(db.String(250))
+    resipateryoption = db.Column(db.String(250))
+    respiratorysystemoption = db.Column(db.String(250))
+    cardiooption = db.Column(db.String(250))
+    cardiovascularsystemoption = db.Column(db.String(250))
+    renaloption = db.Column(db.String(250))
+    renalsystemoption = db.Column(db.String(250))
+    currentmedicationsoption = db.Column(db.String(250))
+    adversereaction = db.Column(db.String(250))
+    created_at = db.Column(db.TIMESTAMP, server_default=text('CURRENT_TIMESTAMP')) # Add the lungoptions column
